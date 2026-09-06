@@ -52,7 +52,7 @@ env:
   # The one variable that separates the arms. On baseline, action-checkout
   # skips its Set up Chalk step entirely. The github.event_name guard keeps
   # incidental push/PR runs uninstrumented, where inputs.leg is empty.
-  CHALK_ON: ${{ github.event_name == 'workflow_dispatch' && inputs.leg != 'baseline' }}
+  CHALK_ON: ${{ inputs.leg == 'instrumented' }}
 
 jobs:
   deploy-docker-image:
